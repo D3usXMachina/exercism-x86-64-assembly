@@ -1,12 +1,12 @@
 section .data
 protein_names:
-   Methionine     db "Methionine", 0
-   Phenylalanine  db "Phenylalanine", 0
-   Leucine        db "Leucine", 0
-   Serine         db "Serine", 0
-   Tyrosine       db "Tyrosine", 0
-   Cysteine       db "Cysteine", 0
-   Tryptophan     db "Tryptophan", 0
+   Methionine     dq `Methionine\0`
+   Phenylalanine  dq `Phenylalanine\0`
+   Leucine        dq `Leucine\0`
+   Serine         dq `Serine\0`
+   Tyrosine       dq `Tyrosine\0`
+   Cysteine       dq `Cysteine\0`
+   Tryptophan     dq `Tryptophan\0`
 
 codon_map:
    db "AUG", 0

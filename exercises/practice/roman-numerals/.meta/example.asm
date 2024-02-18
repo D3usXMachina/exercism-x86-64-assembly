@@ -17,31 +17,31 @@ i_numeral: db "I", 0
 
 section .data
 numeral_array:
-dd 1000
+dq 1000
 dq m_numeral
-dd 900
+dq 900
 dq cm_numeral
-dd 500
+dq 500
 dq d_numeral
-dd 400
+dq 400
 dq cd_numeral
-dd 100
+dq 100
 dq c_numeral
-dd 90
+dq 90
 dq xc_numeral
-dd 50
+dq 50
 dq l_numeral
-dd 40
+dq 40
 dq xl_numeral
-dd 10
+dq 10
 dq x_numeral
-dd 9
+dq 9
 dq ix_numeral
-dd 5
+dq 5
 dq v_numeral
-dd 4
+dq 4
 dq iv_numeral
-dd 1
+dq 1
 dq i_numeral
 dd 0  ; Sentinel value to indicate end of array
 dq 0
@@ -67,7 +67,7 @@ roman:
 .num_loop_start:
     cmp edi, r8d                  ; Compare with value from array
     jl .num_loop_end              ; If less, exit loop
-    mov r9, [rax + rcx + 4]       ; Read numeral from array
+    mov r9, [rax + rcx + 8]       ; Read numeral from array
 
 .str_loop_start:
     mov dl, byte [r9]             ; Read char from numeral
@@ -83,7 +83,7 @@ roman:
     jmp .num_loop_start           ; Loop back
 
 .num_loop_end:
-    add rcx, 12                   ; Increment array index
+    add rcx, 16                   ; Increment array index
     jmp .arr_loop_start           ; Loop back
 
 .arr_loop_end:
